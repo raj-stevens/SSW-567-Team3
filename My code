@@ -1,0 +1,59 @@
+
+import java.util.*;
+
+
+/* Student Name: Hadeel Alhosaini
+ * Subject: SSW567
+ */
+public class HW1 {
+	
+	public static void main(String[] args){
+		// Defining the program parameters
+		        Scanner scan = new Scanner(System.in);
+				String[] StringInput = new String[5];
+				
+        // Taking the name of the customer and printing them
+			    for(int i=0; !scan.hasNext("exit"); i++){					  
+				  for(int m=0; !scan.hasNext("exit") && m<=4; m++){
+					  StringInput[m]=scan.next();
+					  
+					  if(m==4){
+								
+							for(int l=0; l<4; l++){
+								StringInput[l]= StringInput[l]+ isIntegerAndPositive(StringInput[l])+"   ";			
+							}
+							StringInput[4]=isName(StringInput[4]);
+							
+							System.out.println(StringInput[0]+" "+StringInput[1]+" "+StringInput[2]+" "+StringInput[3]+" "+StringInput[4]+" ");
+					  }						  
+				  }
+				  
+				}
+	
+				scan.close();
+		
+		
+			
+	}
+    
+	// Method for checking string is a positive integer
+	public static String isIntegerAndPositive(String value) {
+
+		int Intvalue;
+		try { 
+	        Intvalue = Integer.parseInt(value);
+	    } catch(NumberFormatException e) { 		        
+	    	return " isn't a number"; 
+	    }
+	    if(Intvalue < 0)
+	    	return " isn't a positive number";
+	    return "";
+	}
+	
+	// Method for checking string is a valid customer name
+	 public static String isName(String value) {
+			if(value.matches("[a-zA-Z]+"))
+				return value;
+			else return "\""+ value+ " isn't a valid name" + "\" ";
+	    }
+}
